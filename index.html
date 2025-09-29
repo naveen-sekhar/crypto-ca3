@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHA-2 Family Hash Generator & Verifier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SHA-2 Family Hash Generator & Verifier</h1>
+            <p>Generate and verify hashes using SHA-224, SHA-256, SHA-384, and SHA-512 algorithms</p>
+        </header>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>Hash Generator</h2>
+                <div class="input-group">
+                    <label for="inputText">Enter text to hash:</label>
+                    <textarea id="inputText" placeholder="Type your text here..." rows="4"></textarea>
+                </div>
+
+                <div class="algorithm-selector">
+                    <label>Select SHA Algorithm:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="sha224" name="algorithm" value="SHA-224">
+                        <label for="sha224">SHA-224</label>
+                        
+                        <input type="radio" id="sha256" name="algorithm" value="SHA-256" checked>
+                        <label for="sha256">SHA-256</label>
+                        
+                        <input type="radio" id="sha384" name="algorithm" value="SHA-384">
+                        <label for="sha384">SHA-384</label>
+                        
+                        <input type="radio" id="sha512" name="algorithm" value="SHA-512">
+                        <label for="sha512">SHA-512</label>
+                    </div>
+                </div>
+
+                <button onclick="generateHash()" class="btn btn-primary">Generate Hash</button>
+
+                <div class="output-group">
+                    <label for="hashOutput">Generated Hash:</label>
+                    <textarea id="hashOutput" readonly rows="3"></textarea>
+                    <button onclick="copyToClipboard('hashOutput')" class="btn btn-copy">Copy Hash</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Hash Verifier</h2>
+                <div class="input-group">
+                    <label for="verifyText">Enter original text:</label>
+                    <textarea id="verifyText" placeholder="Enter the original text..." rows="3"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="verifyHash">Enter hash to verify:</label>
+                    <textarea id="verifyHash" placeholder="Enter the hash to verify..." rows="2"></textarea>
+                </div>
+
+                <div class="algorithm-selector">
+                    <label>Select SHA Algorithm for verification:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="verify-sha224" name="verifyAlgorithm" value="SHA-224">
+                        <label for="verify-sha224">SHA-224</label>
+                        
+                        <input type="radio" id="verify-sha256" name="verifyAlgorithm" value="SHA-256" checked>
+                        <label for="verify-sha256">SHA-256</label>
+                        
+                        <input type="radio" id="verify-sha384" name="verifyAlgorithm" value="SHA-384">
+                        <label for="verify-sha384">SHA-384</label>
+                        
+                        <input type="radio" id="verify-sha512" name="verifyAlgorithm" value="SHA-512">
+                        <label for="verify-sha512">SHA-512</label>
+                    </div>
+                </div>
+
+                <button onclick="verifyHash()" class="btn btn-secondary">Verify Hash</button>
+
+                <div id="verifyResult" class="verify-result"></div>
+            </div>
+
+            <div class="section">
+                <h2>Batch Hash Generator</h2>
+                <div class="input-group">
+                    <label for="batchText">Enter text for batch hashing:</label>
+                    <textarea id="batchText" placeholder="Enter text to generate all SHA-2 hashes..." rows="3"></textarea>
+                </div>
+
+                <button onclick="generateAllHashes()" class="btn btn-accent">Generate All SHA-2 Hashes</button>
+
+                <div class="batch-results" id="batchResults"></div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>About SHA-2 Family</h2>
+            <div class="algorithm-info">
+                <div class="algo-card">
+                    <h3>SHA-224</h3>
+                    <p>Produces a 224-bit (28-byte) hash value, typically rendered as 56 hexadecimal digits.</p>
+                </div>
+                <div class="algo-card">
+                    <h3>SHA-256</h3>
+                    <p>Produces a 256-bit (32-byte) hash value, typically rendered as 64 hexadecimal digits.</p>
+                </div>
+                <div class="algo-card">
+                    <h3>SHA-384</h3>
+                    <p>Produces a 384-bit (48-byte) hash value, typically rendered as 96 hexadecimal digits.</p>
+                </div>
+                <div class="algo-card">
+                    <h3>SHA-512</h3>
+                    <p>Produces a 512-bit (64-byte) hash value, typically rendered as 128 hexadecimal digits.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 SHA-2 Hash Generator. Educational purposes only.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
